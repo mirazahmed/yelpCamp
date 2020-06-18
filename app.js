@@ -19,13 +19,13 @@ const commentRoutes    = require("./routes/comments"),
 campgroundRoutes = require("./routes/campgrounds"),
 indexRoutes      = require("./routes/index")
 
-const url = process.env.MONGODB_CONNECTION_STING || "mongodb://localhost:27017/yelp_camp" ;
+const url = process.env.MONGODB_CONNECTION_STRING || "mongodb://localhost:27017/yelp_camp" ;
 
 mongoose.connect(url,{useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{
     console.log(`Connected to MongoDB Database`);
     })
-    .catch(err=>console.log(`Error occured connecting to DB ${err}`));
+.catch(err=>console.log(`Error occured connecting to DB ${err}`));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
